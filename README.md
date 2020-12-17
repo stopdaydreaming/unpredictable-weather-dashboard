@@ -24,7 +24,7 @@ A weather dashboard built using the OpenWeather API, be prepared for those days 
 1. Click the "VIEW SITE" link at the bottom of this README
 
 ## Usage 
-This code should be used for the purpose of creating/editing code for a simple calendar application.
+This code should be used for the purpose of creating/editing code for a weather dashboard application.
 ![weather dashboard](./assets/demo-weather.png)
 
 ## View Website
