@@ -28,7 +28,7 @@ This code should be used for the purpose of creating/editing code for a weather 
 ![weather dashboard](./assets/demo-weather.png)
 
 ## View Website
-Click here to view the live website [VIEW SITE]()
+Click here to view the live website [VIEW SITE](https://stopdaydreaming.github.io/unpredictable-weather-dashboard/)
 
 ## Credits
 1 contributor: @stopdaydreaming  
