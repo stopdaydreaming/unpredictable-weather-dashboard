@@ -1,7 +1,7 @@
 # Unpredictable Weather Dashboard ☔️
 
 ## Description 
-A weather dashboard built using the OpenWeather API, be prepared for those days that start sunny, then rain, then snow before rush hour traffic.
+A weather dashboard built using the OpenWeather API, be prepared for those days that start sunny, then rain, then snow all before rush hour traffic.
 
 ## Table of Contents
 
