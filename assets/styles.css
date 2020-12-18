@@ -7,10 +7,13 @@ section{
     background: #f6f6f6;
     height: 100vh;
 }
-.container {
-    padding: 0 0 0 0;
-}
-.row {
-    width: 100%;
-    height: 100%
-}
+/* .nav-center{
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    float: none;
+} */
+.container-fluid {}
+
+.row {}
