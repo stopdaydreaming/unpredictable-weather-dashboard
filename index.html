@@ -40,16 +40,19 @@
           <aside class="pt-4">
             <div class="card">
               <div class="card-body">
-                <form class="d-flex">
+
+                <form class="d-flex" id="search-form">
                   <input
+                    id="search-input"
                     class="form-control me-2"
                     type="search"
                     aria-label="Search"
                   />
-                  <button class="btn btn-primary" type="submit">
+                  <button class="btn btn-primary"  type="submit">
                     <i class="fas fa-search"></i>
                   </button>
                 </form>
+
               </div>
               <div class="row">
                 <div class="col-sm-12">
@@ -62,6 +65,13 @@
                   </ul>
                 </div>
               </div>
+
+              <!-- test -->
+                <!-- Retrieved data will be dumped here -->
+                <div class="city"></div>
+                <div class="wind"></div>
+                <div class="humidity"></div>
+                <div class="tempF"></div>
             </div>
           </aside>
         </div>
@@ -73,11 +83,15 @@
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title mb-4">Atlanta 8/15/2019 🌥</h4>
-                    <p class="card-text" id="temp">Temperature: 90.9F</p>
-                    <p class="card-text" id="temp">Humidity: 41%</p>
-                    <p class="card-text" id="temp">Wind Speed: 4.7 MPH</p>
-                    <p class="card-text" id="temp">
+                    <p class="city-title">
+                      <span id="city"></span>
+                      <span id="date"></span>
+                      <span id="weather-icon">🌥</span>
+                    </p>
+                    <p class="card-text" id="tempF">Temperature: 90.9F</p>
+                    <p class="card-text" id="humidity">Humidity: 41%</p>
+                    <p class="card-text" id="wind">Wind Speed: 4.7 MPH</p>
+                    <p class="card-text" id="uv">
                       UV Index: <span class="btn btn-danger">9.49</span>
                     </p>
                   </div>
