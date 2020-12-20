@@ -24,24 +24,15 @@
 // -THEN I am presented with the last searched city forecast
 // ```
 
-
-// DOM VARIABLES
-// JAVASCRIPT VARIABLES
-// FUNCTION DEFINITIONS
-// FUNCTION CALLS
-// EVENT LISTENERS
-
 $(document).ready(function() {
 
     // DOM VARIABLES
     var date = new Date().toLocaleDateString() ;
     $("#date").text(date);
 
-    
     // FUNCTION DEFINITIONS
     // FUNCTION CALLS
     // EVENT LISTENERS
-
 
   $("#search-form").on("submit", function(e) {
     e.preventDefault();
@@ -51,8 +42,9 @@ $(document).ready(function() {
     var searchInputEl = $("#search-input");
     var searchRequest = searchInputEl.val();
 
+    // OpenWeather API queries
     var apiKey = "4932ede5556ff672b967c5fbc2310b12";
-    //use the value to build a query url
+    // build the basic query url
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?" +
     "q="+ searchRequest + "&appid=" + apiKey;
 
@@ -62,7 +54,7 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
         console.log(response);
-        
+
       // convert temperature
       var tempF = (response.main.temp - 273.15) * 1.8 + 32;
 
@@ -77,6 +69,25 @@ $(document).ready(function() {
       $("#humidity").text("Humidity: " + response.main.humidity + "%");
       $("#wind").text("Wind Speed: " + response.wind.speed);
       $("#weather-icon").attr("src", iconUrl);
+
+      // UV Index
+      // build the uvi query url
+      var lat = response.coord.lat;
+      var lon = response.coord.lon;
+      var queryUrlUVI = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+      //use the query url to make an ajax call
+      $.ajax({
+        url: queryUrlUVI,
+        method: "GET"
+      }).then(function(response) {
+        $("#uvi").empty();
+        $("#uvi").text(response.value)
+
+      });
+      
+      // 5 DAY FORECAST
+      // var queryUrlForecast = ""
     });
+
   });
 });
