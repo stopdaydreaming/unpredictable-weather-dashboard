@@ -53,7 +53,7 @@ $(document).ready(function() {
       url: queryUrl,
       method: "GET"
     }).then(function(response) {
-        console.log(response);
+      console.log(response);
 
       // convert temperature
       var tempF = (response.main.temp - 273.15) * 1.8 + 32;
@@ -80,10 +80,18 @@ $(document).ready(function() {
         url: queryUrlUVI,
         method: "GET"
       }).then(function(response) {
+        // console.log(response);
+        var uvIndex = response.value;
+        console.log(uvIndex)
+        // add class based on uvi conditions
         $("#uvi").empty();
+        //if uvIndex < 2 //class green
+        //else if uvIndex between 3 and 5 //class yellow
+        //else if uvIndex between 6 and 7 //class orange
+        //else if uvIndex between 8 and 10 //class red
+        //else if uvIndex > 11 //class purple
         $("#uvi").addClass("btn-danger");
-        $("#uvi").text(response.value)
-
+        $("#uvi").text(response.value);
       });
       
       // 5 DAY FORECAST
