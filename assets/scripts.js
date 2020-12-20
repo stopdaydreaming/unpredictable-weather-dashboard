@@ -81,6 +81,7 @@ $(document).ready(function() {
         method: "GET"
       }).then(function(response) {
         $("#uvi").empty();
+        $("#uvi").addClass("btn-danger");
         $("#uvi").text(response.value)
 
       });
