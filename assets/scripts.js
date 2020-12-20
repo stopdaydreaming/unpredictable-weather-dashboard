@@ -24,28 +24,35 @@
 // -THEN I am presented with the last searched city forecast
 // ```
 
+
+// DOM VARIABLES
+// JAVASCRIPT VARIABLES
+// FUNCTION DEFINITIONS
+// FUNCTION CALLS
+// EVENT LISTENERS
+
 $(document).ready(function() {
+
+    // DOM VARIABLES
     var date = new Date().toLocaleDateString() ;
     $("#date").text(date);
+
+    
+    // FUNCTION DEFINITIONS
+    // FUNCTION CALLS
+    // EVENT LISTENERS
+
 
   $("#search-form").on("submit", function(e) {
     e.preventDefault();
 
-    var date = new Date().toLocaleDateString() ;
-
+    // JAVASCRIPT VARIABLES
     //get value out of input
     var searchInputEl = $("#search-input");
-
     var searchRequest = searchInputEl.val();
-    if(searchRequest === null){
-        alert("please enter a city")
-    }
-    else {
-        console.log(searchRequest);
-    }
 
-    //use the value to build a query url
     var apiKey = "4932ede5556ff672b967c5fbc2310b12";
+    //use the value to build a query url
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?" +
     "q="+ searchRequest + "&appid=" + apiKey;
 
@@ -55,23 +62,21 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
         console.log(response);
-      // Transfer content to HTML
+        
+      // convert temperature
+      var tempF = (response.main.temp - 273.15) * 1.8 + 32;
+
+      //generate weather icons
+      var iconCode = response.weather[0].icon;
+      var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+
+      // add content to html
       $("#city").text(response.name);
       $("#date").text(date);
-
-      var weatherIcon = response.weather[0].description;
-      if(weatherIcon === "clear sky"){
-        $("#weather-icon").addClass('fa-sun');
-      }
-      else {
-        $("#weather-icon").addClass('fa-cloud-sun');
-      }
-
-      var tempF = (response.main.temp - 273.15) * 1.8 + 32;
-      // add temp content to html
       $("#tempF").text("Temperature: " + tempF.toFixed(2));
       $("#humidity").text("Humidity: " + response.main.humidity + "%");
       $("#wind").text("Wind Speed: " + response.wind.speed);
+      $("#weather-icon").attr("src", iconUrl);
     });
   });
 });
