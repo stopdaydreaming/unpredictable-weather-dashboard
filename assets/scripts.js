@@ -81,16 +81,26 @@ $(document).ready(function() {
         method: "GET"
       }).then(function(response) {
         // console.log(response);
+        
         var uvIndex = response.value;
-        console.log(uvIndex)
         // add class based on uvi conditions
         $("#uvi").empty();
-        //if uvIndex < 2 //class green
-        //else if uvIndex between 3 and 5 //class yellow
-        //else if uvIndex between 6 and 7 //class orange
-        //else if uvIndex between 8 and 10 //class red
-        //else if uvIndex > 11 //class purple
-        $("#uvi").addClass("btn-danger");
+        if (uvIndex < 2) {
+          $("#uvi").addClass("btn-success"); 
+        }
+        else if (uvIndex > 2 && uvIndex < 5 ) {
+          $("#uvi").addClass("btn-yellow"); 
+          console.log("medium");
+        }
+        else if (uvIndex > 5 && uvIndex < 7 ) {
+          $("#uvi").addClass("btn-orange"); 
+        }
+        else if (uvIndex > 7 && uvIndex < 10 ) {
+          $("#uvi").addClass("btn-danger"); 
+        }
+        else if (uvIndex > 11 ) {
+          $("#uvi").addClass("btn-purple"); 
+        }
         $("#uvi").text(response.value);
       });
       

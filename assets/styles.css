@@ -32,3 +32,12 @@ header {
     font-weight: 500;
     line-height: 1.2;
 }
+.btn-orange{
+    background-color: var(--bs-orange);
+}
+.btn-yellow{
+    background-color: var(--bs-yellow);
+}
+.btn-purple{
+    background-color: var(--bs-purple);
+}
