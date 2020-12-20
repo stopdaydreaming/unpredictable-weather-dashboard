@@ -25,15 +25,24 @@
 // ```
 
 $(document).ready(function() {
+    var date = new Date().toLocaleDateString() ;
+    $("#date").text(date);
+
   $("#search-form").on("submit", function(e) {
     e.preventDefault();
 
-    var date = new Date().toLocaleDateString();
+    var date = new Date().toLocaleDateString() ;
 
     //get value out of input
     var searchInputEl = $("#search-input");
 
     var searchRequest = searchInputEl.val();
+    if(searchRequest === null){
+        alert("please enter a city")
+    }
+    else {
+        console.log(searchRequest);
+    }
 
     //use the value to build a query url
     var apiKey = "4932ede5556ff672b967c5fbc2310b12";
@@ -45,11 +54,19 @@ $(document).ready(function() {
       url: queryUrl,
       method: "GET"
     }).then(function(response) {
-
+        console.log(response);
       // Transfer content to HTML
       $("#city").text(response.name);
       $("#date").text(date);
-      // Convert the temp to fahrenheit
+
+      var weatherIcon = response.weather[0].description;
+      if(weatherIcon === "clear sky"){
+        $("#weather-icon").addClass('fa-sun');
+      }
+      else {
+        $("#weather-icon").addClass('fa-cloud-sun');
+      }
+
       var tempF = (response.main.temp - 273.15) * 1.8 + 32;
       // add temp content to html
       $("#tempF").text("Temperature: " + tempF.toFixed(2));

@@ -32,6 +32,10 @@ Click here to view the live website [VIEW SITE](https://stopdaydreaming.github.i
 
 ## Credits
 1 contributor: @stopdaydreaming  
+Open Weather API Resources:  
+[Weather Conditions](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2)  
+[UV Index](https://openweathermap.org/api/uvi)  
+[5 Day Forecast](https://openweathermap.org/forecast5)  
 
 ## License
 Copyright (c) Unpredictable Weather Dashboard. All rights reserved.

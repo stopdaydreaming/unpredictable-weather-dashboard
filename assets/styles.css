@@ -15,7 +15,13 @@ header {
 #city,#date,#weather-icon {
     padding-right: .75em;
 }
-
+#weather-icon{
+    color: #0E6EFC;
+    font-size: 2.5rem;
+}
+.fas {
+    font-size: 1.75rem;
+}
 .col-md-3 {
     background-color: aliceblue;
 }
