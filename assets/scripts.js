@@ -40,13 +40,13 @@ $(document).ready(function() {
     // JAVASCRIPT VARIABLES
     //get value out of input
     var searchInputEl = $("#search-input");
-    var searchRequest = searchInputEl.val();
+    var citySearch = searchInputEl.val();
 
     // OpenWeather API queries
     var apiKey = "4932ede5556ff672b967c5fbc2310b12";
     // build the basic query url
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?" +
-    "q="+ searchRequest + "&appid=" + apiKey;
+    "q="+ citySearch + "&appid=" + apiKey;
 
     //use the query url to make an ajax call
     $.ajax({
@@ -90,7 +90,6 @@ $(document).ready(function() {
         }
         else if (uvIndex > 2 && uvIndex < 5 ) {
           $("#uvi").addClass("btn-yellow"); 
-          console.log("medium");
         }
         else if (uvIndex > 5 && uvIndex < 7 ) {
           $("#uvi").addClass("btn-orange"); 
@@ -105,7 +104,22 @@ $(document).ready(function() {
       });
       
       // 5 DAY FORECAST
-      // var queryUrlForecast = ""
+      var queryUrlForecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=" + apiKey;
+      // 5 day forecast ajax request
+      $.ajax({
+          url: queryUrlForecast,
+          method: "GET",
+      }).then(function(response){
+          console.log(response);
+          var forecastDate = response.list[0].dt_txt;
+          var fDate = forecastDate.substr(0,10);
+        //   console.log(fDate);
+          var forecastTemp = response.list[0].main.temp;
+        //   console.log(forecastTemp);
+          var forecastHum = response.list[0].main.humidity;
+        //   console.log(forecastHum);
+        //   console.log(response.list[0].main.temp);
+      })
     });
 
   });
