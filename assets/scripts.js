@@ -61,14 +61,14 @@ $(document).ready(function() {
     }).then(function(response) {
       console.log(response);
 
-                   //city list
-                   var ul = $("<ul>");
-                   ul.addClass("list-group p-3");
-                   var li = $("<li>");
-                   li.addClass("list-group-item");
-                   li.text(response.name);
-                   $(ul).append(li);
-                   $("#city-list").append(ul);
+        //city list
+        var ul = $("<ul>");
+        ul.addClass("list-group p-3");
+        var li = $("<li>");
+        li.addClass("list-group-item");
+        li.text(response.name);
+        $(ul).append(li);
+        $("#city-list").append(ul);
 
       // convert temperature
       var tempF = (response.main.temp - 273.15) * 1.8 + 32;
