@@ -111,14 +111,16 @@ $(document).ready(function() {
           method: "GET",
       }).then(function(response){
           console.log(response);
+
           var forecastDate = response.list[0].dt_txt;
           var fDate = forecastDate.substr(0,10);
-        //   console.log(fDate);
           var forecastTemp = response.list[0].main.temp;
-        //   console.log(forecastTemp);
+          var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
           var forecastHum = response.list[0].main.humidity;
-        //   console.log(forecastHum);
-        //   console.log(response.list[0].main.temp);
+
+          $("#forecast-date").text(fDate);
+          $("#forecast-temp").text("Temp: " + Math.round(fTemp));
+          $("#forecast-hum").text("Humidity: " + forecastHum + "%");
       })
     });
 
