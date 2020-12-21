@@ -1,5 +1,6 @@
 /* *{border: solid 1px red} */
 
+/* ### ELEMENTS ### */
 aside{
     background-color: aliceblue;
     height: 100vh;
@@ -12,6 +13,7 @@ header {
     width: 100%;
 }
 
+/* ### IDS ### */
 #city,#date,#weather-icon {
     padding-right: .75em;
 }
@@ -20,6 +22,8 @@ header {
     border-radius: 35px;
     padding-right: 0;
 }
+
+/* ### CLASSES ### */
 .fas {
     font-size: 1.75rem;
 }

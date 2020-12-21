@@ -42,6 +42,8 @@ $(document).ready(function() {
     var searchInputEl = $("#search-input");
     var citySearch = searchInputEl.val();
 
+
+
     // OpenWeather API queries
     var apiKey = "4932ede5556ff672b967c5fbc2310b12";
     // build the basic query url
@@ -58,6 +60,15 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       console.log(response);
+
+                   //city list
+                   var ul = $("<ul>");
+                   ul.addClass("list-group p-3");
+                   var li = $("<li>");
+                   li.addClass("list-group-item");
+                   li.text(response.name);
+                   $(ul).append(li);
+                   $("#city-list").append(ul);
 
       // convert temperature
       var tempF = (response.main.temp - 273.15) * 1.8 + 32;
@@ -122,20 +133,9 @@ $(document).ready(function() {
       }).then(function(response) {
         console.log(response);
 
-        //javascript variables
-        var forecastDate = response.list[0].dt_txt;
-        var fDate = forecastDate.substr(0, 10);
-        var forecastTemp = response.list[0].main.temp;
-        var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
-        var forecastHum = response.list[0].main.humidity;
-        //weather icons
-        //generate weather icons
-        var forecastIconCode = response.list[0].weather[0].icon;
-        var forecastIconUrl = "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
-
         // function declaration
-        function formatDate(inputDate) {
-          var date = new Date(inputDate);
+        function formatDate(date) {
+          var date = new Date(date);
           if (!isNaN(date.getTime())) {
             var day = date.getDate().toString();
             var month = (date.getMonth() + 1).toString();
@@ -149,11 +149,31 @@ $(document).ready(function() {
           }
         }
 
-        $("#forecast-date").text(formatDate(fDate));
-        $("#weather-forecast-icon").attr("src", forecastIconUrl);
-        $("#forecast-temp").text("Temp: " + Math.round(fTemp));
-        $("#forecast-hum").text("Humidity: " + forecastHum + "%");
+        var forecastList = response.list;
+        console.log(forecastList);
+        for (var i = 0; i < forecastList.length; i++) {
+          //javascript variables
+          var forecastDate = forecastList[i].dt_txt;
+          var foreDate = forecastDate.substr(0, 10);
+          var forecastTemp = forecastList[i].main.temp;
+          var foreTemp = (forecastTemp - 273.15) * 1.8 + 32;
+          var forecastHum = forecastList[i].main.humidity;
+          // generate weather icons
+          var forecastIconCode = forecastList[i].weather[0].icon;
+          console.log(forecastIconCode);
+          var forecastIconUrl =
+            "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
+            console.log(forecastIconUrl);
 
+          // 5 day forecast card
+          $("#forecast-date").text(formatDate(foreDate));
+          $("#weather-forecast-icon").attr("src", forecastIconUrl);
+          $("#forecast-temp").text("Temp: " + Math.round(foreTemp));
+          $("#forecast-hum").text("Humidity: " + forecastHum + "%");
+          //append
+
+
+        }
       });
     });
   });

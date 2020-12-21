@@ -57,14 +57,14 @@
 
               </div>
               <div class="row">
-                <div class="col-sm-12">
-                  <ul class="list-group p-3">
+                <div id="city-list" class="col-sm-12">
+                  <!-- <ul class="list-group p-3">
                     <li class="list-group-item">Austin</li>
                     <li class="list-group-item">Chicago</li>
                     <li class="list-group-item">New York</li>
                     <li class="list-group-item">Orlando</li>
                     <li class="list-group-item">San Francisco</li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
 
@@ -80,6 +80,7 @@
         <!-- DASHBOARD MAIN -->
         <div class="col-lg-9">
           <main class="pt-4">
+
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
@@ -99,84 +100,25 @@
                 </div>
               </div>
             </div>
+
             <div class="row mt-4">
               <h4 class="card-title mb-4">5-Day Forecast</h4>
               <div class="col-lg-2">
                 <div
+                  id="forecast-card" 
                   class="card text-white bg-primary mb-3"
                   style="max-width: 18rem;"
                 >
                   <div class="card-body">
                     <h5 id="forecast-date" class="card-title"></h5>
-                    <p class="card-text">
-                        <img id="weather-forecast-icon" />
-                    </p>
+                    <img id="weather-forecast-icon" />
                     <p id="forecast-temp" class="card-text"></p>
                     <p id="forecast-hum" class="card-text"></p>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-2">
-                <div
-                  class="card text-white bg-primary mb-3"
-                  style="max-width: 18rem;"
-                >
-                  <div class="card-body">
-                    <h5 class="card-title">8/20/2019</h5>
-                    <p class="card-text">
-                      <i class="fas fa-cloud-showers-heavy"></i>
-                    </p>
-                    <p class="card-text">Temp: 88</p>
-                    <p class="card-text">Humidity: 43%</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div
-                  class="card text-white bg-primary mb-3"
-                  style="max-width: 18rem;"
-                >
-                  <div class="card-body">
-                    <h5 class="card-title">8/20/2019</h5>
-                    <p class="card-text">
-                      <i class="fas fa-cloud-rain"></i>
-                    </p>
-                    <p class="card-text">Temp: 88</p>
-                    <p class="card-text">Humidity: 43%</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div
-                  class="card text-white bg-primary mb-3"
-                  style="max-width: 18rem;"
-                >
-                  <div class="card-body">
-                    <h5 class="card-title">8/20/2019</h5>
-                    <p class="card-text">
-                      <i class="fas fas fa-smog"></i>
-                    </p>
-                    <p class="card-text">Temp: 88</p>
-                    <p class="card-text">Humidity: 43%</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div
-                  class="card text-white bg-primary mb-3"
-                  style="max-width: 18rem;"
-                >
-                  <div class="card-body">
-                    <h5 class="card-title">8/20/2019</h5>
-                    <p class="card-text">
-                      <i class="fas fa-snowflake"></i>
-                    </p>
-                    <p class="card-text">Temp: 88</p>
-                    <p class="card-text">Humidity: 43%</p>
-                  </div>
-                </div>
-              </div>
             </div>
+
           </main>
         </div>
       </div>
@@ -193,5 +135,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/scripts.js" async defer></script>
+
   </body>
 </html>
