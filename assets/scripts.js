@@ -31,6 +31,7 @@ $(document).ready(function() {
     $("#date").text(date);
 
     // FUNCTION DEFINITIONS
+    
     // FUNCTION CALLS
     // EVENT LISTENERS
 
@@ -118,7 +119,18 @@ $(document).ready(function() {
           var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
           var forecastHum = response.list[0].main.humidity;
 
-          $("#forecast-date").text(fDate);
+          function formatDate(inputDate) {
+            var date = new Date(inputDate);
+            if (!isNaN(date.getTime())) {
+                var day = date.getDate().toString();
+                var month = (date.getMonth() + 1).toString();
+                return (month[1] ? month : '0' + month[0]) + '/' +
+                   (day[1] ? day : '0' + day[0]) + '/' + 
+                   date.getFullYear();
+            }
+        }
+
+          $("#forecast-date").text(formatDate(fDate));
           $("#forecast-temp").text("Temp: " + Math.round(fTemp));
           $("#forecast-hum").text("Humidity: " + forecastHum + "%");
       })

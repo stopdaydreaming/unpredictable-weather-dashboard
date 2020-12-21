@@ -42,7 +42,7 @@ header {
 .btn-purple{
     background-color: var(--bs-purple);
 }
-.btn:hover{
+.btn-uvi:hover{
     background: none;
     border: solid 1px black;
     color: black;
