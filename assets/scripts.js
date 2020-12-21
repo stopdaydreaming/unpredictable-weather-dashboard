@@ -25,15 +25,14 @@
 // ```
 
 $(document).ready(function() {
+  // DOM VARIABLES
+  var date = new Date().toLocaleDateString();
+  $("#date").text(date);
 
-    // DOM VARIABLES
-    var date = new Date().toLocaleDateString() ;
-    $("#date").text(date);
+  // FUNCTION DEFINITIONS
 
-    // FUNCTION DEFINITIONS
-    
-    // FUNCTION CALLS
-    // EVENT LISTENERS
+  // FUNCTION CALLS
+  // EVENT LISTENERS
 
   $("#search-form").on("submit", function(e) {
     e.preventDefault();
@@ -46,8 +45,12 @@ $(document).ready(function() {
     // OpenWeather API queries
     var apiKey = "4932ede5556ff672b967c5fbc2310b12";
     // build the basic query url
-    var queryUrl = "https://api.openweathermap.org/data/2.5/weather?" +
-    "q="+ citySearch + "&appid=" + apiKey;
+    var queryUrl =
+      "https://api.openweathermap.org/data/2.5/weather?" +
+      "q=" +
+      citySearch +
+      "&appid=" +
+      apiKey;
 
     //use the query url to make an ajax call
     $.ajax({
@@ -75,66 +78,83 @@ $(document).ready(function() {
       // build the uvi query url
       var lat = response.coord.lat;
       var lon = response.coord.lon;
-      var queryUrlUVI = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+      var queryUrlUVI =
+        "http://api.openweathermap.org/data/2.5/uvi?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&appid=" +
+        apiKey;
       //use the query url to make an ajax call
       $.ajax({
         url: queryUrlUVI,
         method: "GET"
       }).then(function(response) {
         // console.log(response);
-        
+
         var uvIndex = response.value;
         // add class based on uvi conditions
         $("#uvi").empty();
         if (uvIndex < 2) {
-          $("#uvi").addClass("btn-success"); 
-        }
-        else if (uvIndex > 2 && uvIndex < 5 ) {
-          $("#uvi").addClass("btn-yellow"); 
-        }
-        else if (uvIndex > 5 && uvIndex < 7 ) {
-          $("#uvi").addClass("btn-orange"); 
-        }
-        else if (uvIndex > 7 && uvIndex < 10 ) {
-          $("#uvi").addClass("btn-danger"); 
-        }
-        else if (uvIndex > 11 ) {
-          $("#uvi").addClass("btn-purple"); 
+          $("#uvi").addClass("btn-success");
+        } else if (uvIndex > 2 && uvIndex < 5) {
+          $("#uvi").addClass("btn-yellow");
+        } else if (uvIndex > 5 && uvIndex < 7) {
+          $("#uvi").addClass("btn-orange");
+        } else if (uvIndex > 7 && uvIndex < 10) {
+          $("#uvi").addClass("btn-danger");
+        } else if (uvIndex > 11) {
+          $("#uvi").addClass("btn-purple");
         }
         $("#uvi").text(response.value);
       });
-      
+
       // 5 DAY FORECAST
-      var queryUrlForecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=" + apiKey;
+      var queryUrlForecast =
+        "http://api.openweathermap.org/data/2.5/forecast?q=" +
+        citySearch +
+        "&appid=" +
+        apiKey;
       // 5 day forecast ajax request
       $.ajax({
-          url: queryUrlForecast,
-          method: "GET",
-      }).then(function(response){
-          console.log(response);
+        url: queryUrlForecast,
+        method: "GET"
+      }).then(function(response) {
+        console.log(response);
 
-          var forecastDate = response.list[0].dt_txt;
-          var fDate = forecastDate.substr(0,10);
-          var forecastTemp = response.list[0].main.temp;
-          var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
-          var forecastHum = response.list[0].main.humidity;
+        //javascript variables
+        var forecastDate = response.list[0].dt_txt;
+        var fDate = forecastDate.substr(0, 10);
+        var forecastTemp = response.list[0].main.temp;
+        var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
+        var forecastHum = response.list[0].main.humidity;
+        //weather icons
+        //generate weather icons
+        var forecastIconCode = response.list[0].weather[0].icon;
+        var forecastIconUrl = "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
 
-          function formatDate(inputDate) {
-            var date = new Date(inputDate);
-            if (!isNaN(date.getTime())) {
-                var day = date.getDate().toString();
-                var month = (date.getMonth() + 1).toString();
-                return (month[1] ? month : '0' + month[0]) + '/' +
-                   (day[1] ? day : '0' + day[0]) + '/' + 
-                   date.getFullYear();
-            }
+        // function declaration
+        function formatDate(inputDate) {
+          var date = new Date(inputDate);
+          if (!isNaN(date.getTime())) {
+            var day = date.getDate().toString();
+            var month = (date.getMonth() + 1).toString();
+            return (
+              (month[1] ? month : "0" + month[0]) +
+              "/" +
+              (day[1] ? day : "0" + day[0]) +
+              "/" +
+              date.getFullYear()
+            );
+          }
         }
 
-          $("#forecast-date").text(formatDate(fDate));
-          $("#forecast-temp").text("Temp: " + Math.round(fTemp));
-          $("#forecast-hum").text("Humidity: " + forecastHum + "%");
-      })
-    });
+        $("#forecast-date").text(formatDate(fDate));
+        $("#weather-forecast-icon").attr("src", forecastIconUrl);
+        $("#forecast-temp").text("Temp: " + Math.round(fTemp));
+        $("#forecast-hum").text("Humidity: " + forecastHum + "%");
 
+      });
+    });
   });
 });
