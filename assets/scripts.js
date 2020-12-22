@@ -58,6 +58,7 @@ $(document).ready(function() {
 
       // add content to html
       $("#city").text(response.name);
+      $("#date").removeClass("hide");
       $("#date").text(date);
       $("#tempF").text("Temperature: " + tempF.toFixed(2));
       $("#humidity").text("Humidity: " + response.main.humidity + "%");
@@ -95,7 +96,7 @@ $(document).ready(function() {
         } else if (uvIndex > 11) {
           $("#uvi").addClass("btn-purple");
         }
-        $("#uvi").text(response.value);
+        $("#uvi").text("UV Index: " + response.value);
       });
 
       // 5 DAY FORECAST
