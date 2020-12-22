@@ -48,7 +48,6 @@ $(document).ready(function() {
       url: queryUrl,
       method: "GET"
     }).then(function(response) {
-
       // convert temperature
       var tempF = (response.main.temp - 273.15) * 1.8 + 32;
 
@@ -81,7 +80,6 @@ $(document).ready(function() {
         url: queryUrlUVI,
         method: "GET"
       }).then(function(response) {
-
         var uvIndex = response.value;
         // add class based on uvi conditions
         $("#uvi").empty();
@@ -113,7 +111,7 @@ $(document).ready(function() {
         url: queryUrlForecast,
         method: "GET"
       }).then(function(response) {
-
+        //data set 01
         var forecastDate = response.daily[0].dt;
         var fDate = forecastDate;
         // var fDate = forecastDate.toString().substr(0, 8);
@@ -125,10 +123,78 @@ $(document).ready(function() {
         var forecastIconUrl =
           "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
 
-        $("#forecast-date").text(formatDate(fDate));
-        $("#weather-forecast-icon").attr("src", forecastIconUrl);
-        $("#forecast-temp").text("Temp: " + Math.round(fTemp) + "°");
-        $("#forecast-hum").text("Humidity: " + forecastHum + "%");
+        $("#forecast-date-1").text(formatDate(fDate));
+        $("#weather-forecast-icon-1").attr("src", forecastIconUrl);
+        $("#forecast-temp-1").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-hum-1").text("Humidity: " + forecastHum + "%");
+
+        //data set 02
+        var forecastDate = response.daily[1].dt;
+        var fDate = forecastDate;
+        // var fDate = forecastDate.toString().substr(0, 8);
+        var forecastTemp = response.daily[1].temp.day;
+        var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
+        var forecastHum = response.daily[1].humidity;
+        // generate weather icons
+        var forecastIconCode = response.daily[1].weather[0].icon;
+        var forecastIconUrl =
+          "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
+
+        $("#forecast-date-2").text(formatDate(fDate));
+        $("#weather-forecast-icon-2").attr("src", forecastIconUrl);
+        $("#forecast-temp-2").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-hum-2").text("Humidity: " + forecastHum + "%");
+
+        //data set 03
+        var forecastDate = response.daily[2].dt;
+        var fDate = forecastDate;
+        // var fDate = forecastDate.toString().substr(0, 8);
+        var forecastTemp = response.daily[2].temp.day;
+        var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
+        var forecastHum = response.daily[2].humidity;
+        // generate weather icons
+        var forecastIconCode = response.daily[2].weather[0].icon;
+        var forecastIconUrl =
+          "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
+
+        $("#forecast-date-3").text(formatDate(fDate));
+        $("#weather-forecast-icon-3").attr("src", forecastIconUrl);
+        $("#forecast-temp-3").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-hum-3").text("Humidity: " + forecastHum + "%");
+
+        //data set 04
+        var forecastDate = response.daily[3].dt;
+        var fDate = forecastDate;
+        // var fDate = forecastDate.toString().substr(0, 8);
+        var forecastTemp = response.daily[3].temp.day;
+        var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
+        var forecastHum = response.daily[3].humidity;
+        // generate weather icons
+        var forecastIconCode = response.daily[3].weather[0].icon;
+        var forecastIconUrl =
+          "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
+
+        $("#forecast-date-4").text(formatDate(fDate));
+        $("#weather-forecast-icon-4").attr("src", forecastIconUrl);
+        $("#forecast-temp-4").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-hum-4").text("Humidity: " + forecastHum + "%");
+
+        //data set 05
+        var forecastDate = response.daily[4].dt;
+        var fDate = forecastDate;
+        // var fDate = forecastDate.toString().substr(0, 8);
+        var forecastTemp = response.daily[4].temp.day;
+        var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
+        var forecastHum = response.daily[4].humidity;
+        // generate weather icons
+        var forecastIconCode = response.daily[4].weather[0].icon;
+        var forecastIconUrl =
+          "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
+
+        $("#forecast-date-5").text(formatDate(fDate));
+        $("#weather-forecast-icon-5").attr("src", forecastIconUrl);
+        $("#forecast-temp-5").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-hum-5").text("Humidity: " + forecastHum + "%");
       });
     });
   });
