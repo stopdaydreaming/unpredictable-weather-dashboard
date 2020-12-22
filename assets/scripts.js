@@ -113,8 +113,6 @@ $(document).ready(function() {
       }).then(function(response) {
         //data set 01
         var forecastDate = response.daily[0].dt;
-        var fDate = forecastDate;
-        // var fDate = forecastDate.toString().substr(0, 8);
         var forecastTemp = response.daily[0].temp.day;
         var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
         var forecastHum = response.daily[0].humidity;
@@ -130,8 +128,6 @@ $(document).ready(function() {
 
         //data set 02
         var forecastDate = response.daily[1].dt;
-        var fDate = forecastDate;
-        // var fDate = forecastDate.toString().substr(0, 8);
         var forecastTemp = response.daily[1].temp.day;
         var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
         var forecastHum = response.daily[1].humidity;
@@ -147,8 +143,6 @@ $(document).ready(function() {
 
         //data set 03
         var forecastDate = response.daily[2].dt;
-        var fDate = forecastDate;
-        // var fDate = forecastDate.toString().substr(0, 8);
         var forecastTemp = response.daily[2].temp.day;
         var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
         var forecastHum = response.daily[2].humidity;
@@ -164,8 +158,6 @@ $(document).ready(function() {
 
         //data set 04
         var forecastDate = response.daily[3].dt;
-        var fDate = forecastDate;
-        // var fDate = forecastDate.toString().substr(0, 8);
         var forecastTemp = response.daily[3].temp.day;
         var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
         var forecastHum = response.daily[3].humidity;
@@ -181,8 +173,6 @@ $(document).ready(function() {
 
         //data set 05
         var forecastDate = response.daily[4].dt;
-        var fDate = forecastDate;
-        // var fDate = forecastDate.toString().substr(0, 8);
         var forecastTemp = response.daily[4].temp.day;
         var fTemp = (forecastTemp - 273.15) * 1.8 + 32;
         var forecastHum = response.daily[4].humidity;
