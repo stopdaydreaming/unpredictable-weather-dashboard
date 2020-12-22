@@ -59,9 +59,9 @@ $(document).ready(function() {
       $("#city").text(response.name);
       $("#date").removeClass("hide");
       $("#date").text(date);
-      $("#tempF").text("Temperature: " + tempF.toFixed(2));
+      $("#tempF").text("Temperature: " + tempF.toFixed(2) + " °F");
       $("#humidity").text("Humidity: " + response.main.humidity + "%");
-      $("#wind").text("Wind Speed: " + response.wind.speed);
+      $("#wind").text("Wind Speed: " + response.wind.speed + " MPH");
       $("#weather-icon").attr("src", iconUrl);
 
       // UV Index
@@ -125,7 +125,7 @@ $(document).ready(function() {
 
         $("#forecast-date-1").text(formatDate(fDate));
         $("#weather-forecast-icon-1").attr("src", forecastIconUrl);
-        $("#forecast-temp-1").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-temp-1").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-1").text("Humidity: " + forecastHum + "%");
 
         //data set 02
@@ -142,7 +142,7 @@ $(document).ready(function() {
 
         $("#forecast-date-2").text(formatDate(fDate));
         $("#weather-forecast-icon-2").attr("src", forecastIconUrl);
-        $("#forecast-temp-2").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-temp-2").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-2").text("Humidity: " + forecastHum + "%");
 
         //data set 03
@@ -159,7 +159,7 @@ $(document).ready(function() {
 
         $("#forecast-date-3").text(formatDate(fDate));
         $("#weather-forecast-icon-3").attr("src", forecastIconUrl);
-        $("#forecast-temp-3").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-temp-3").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-3").text("Humidity: " + forecastHum + "%");
 
         //data set 04
@@ -176,7 +176,7 @@ $(document).ready(function() {
 
         $("#forecast-date-4").text(formatDate(fDate));
         $("#weather-forecast-icon-4").attr("src", forecastIconUrl);
-        $("#forecast-temp-4").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-temp-4").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-4").text("Humidity: " + forecastHum + "%");
 
         //data set 05
@@ -193,7 +193,7 @@ $(document).ready(function() {
 
         $("#forecast-date-5").text(formatDate(fDate));
         $("#weather-forecast-icon-5").attr("src", forecastIconUrl);
-        $("#forecast-temp-5").text("Temp: " + Math.round(fTemp) + "°");
+        $("#forecast-temp-5").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-5").text("Humidity: " + forecastHum + "%");
       });
     });
