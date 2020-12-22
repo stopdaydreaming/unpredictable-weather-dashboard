@@ -50,20 +50,20 @@
                     placeholder="Search by City"
                     required
                   />
-                  <button class="btn btn-primary" type="submit">
+                  <button class="btn btn-primary"  type="submit">
                     <i class="fas fa-search"></i>
                   </button>
                 </form>
 
               </div>
               <div class="row">
-                <div id="city-list" class="col-sm-12">
+                <div class="col-sm-12">
                   <ul class="list-group p-3">
-                    <!-- <li class="list-group-item">Austin</li>
+                    <li class="list-group-item">Austin</li>
                     <li class="list-group-item">Chicago</li>
                     <li class="list-group-item">New York</li>
                     <li class="list-group-item">Orlando</li>
-                    <li class="list-group-item">San Francisco</li> -->
+                    <li class="list-group-item">San Francisco</li>
                   </ul>
                 </div>
               </div>
@@ -80,7 +80,6 @@
         <!-- DASHBOARD MAIN -->
         <div class="col-lg-9">
           <main class="pt-4">
-
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
@@ -88,24 +87,22 @@
                     <p class="city-title">
                       <span id="city">Atlanta</span>
                       <span id="date"></span>
-                      <img id="weather-icon" />
+                      <img id="weather-icon"></img>
                     </p>
                     <p class="card-text" id="tempF">Temperature: 90.9F</p>
                     <p class="card-text" id="humidity">Humidity: 41%</p>
                     <p class="card-text" id="wind">Wind Speed: 4.7 MPH</p>
                     <p class="card-text" id="uv">
-                      UV Index: <span id="uvi" class="btn btn-uvi"></span>
+                      UV Index: <span id="uvi" class="btn"></span>
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-
             <div class="row mt-4">
               <h4 class="card-title mb-4">5-Day Forecast</h4>
               <div class="col-lg-2">
                 <div
-                  id="forecast-card" 
                   class="card text-white bg-primary mb-3"
                   style="max-width: 18rem;"
                 >
@@ -117,8 +114,67 @@
                   </div>
                 </div>
               </div>
+              <div class="col-lg-2">
+                <div
+                  class="card text-white bg-primary mb-3"
+                  style="max-width: 18rem;"
+                >
+                  <div class="card-body">
+                    <h5 class="card-title">8/20/2019</h5>
+                    <p class="card-text">
+                      <i class="fas fa-cloud-showers-heavy"></i>
+                    </p>
+                    <p class="card-text">Temp: 88</p>
+                    <p class="card-text">Humidity: 43%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div
+                  class="card text-white bg-primary mb-3"
+                  style="max-width: 18rem;"
+                >
+                  <div class="card-body">
+                    <h5 class="card-title">8/20/2019</h5>
+                    <p class="card-text">
+                      <i class="fas fa-cloud-rain"></i>
+                    </p>
+                    <p class="card-text">Temp: 88</p>
+                    <p class="card-text">Humidity: 43%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div
+                  class="card text-white bg-primary mb-3"
+                  style="max-width: 18rem;"
+                >
+                  <div class="card-body">
+                    <h5 class="card-title">8/20/2019</h5>
+                    <p class="card-text">
+                      <i class="fas fas fa-smog"></i>
+                    </p>
+                    <p class="card-text">Temp: 88</p>
+                    <p class="card-text">Humidity: 43%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div
+                  class="card text-white bg-primary mb-3"
+                  style="max-width: 18rem;"
+                >
+                  <div class="card-body">
+                    <h5 class="card-title">8/20/2019</h5>
+                    <p class="card-text">
+                      <i class="fas fa-snowflake"></i>
+                    </p>
+                    <p class="card-text">Temp: 88</p>
+                    <p class="card-text">Humidity: 43%</p>
+                  </div>
+                </div>
+              </div>
             </div>
-
           </main>
         </div>
       </div>
@@ -135,6 +191,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/scripts.js" async defer></script>
-
   </body>
 </html>

@@ -36,6 +36,8 @@ Open Weather API Resources:
 [Weather Conditions](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2)  
 [UV Index](https://openweathermap.org/api/uvi)  
 [5 Day Forecast](https://openweathermap.org/forecast5)  
+[Open Call API](https://openweathermap.org/api/one-call-api) 
+ 
 [Stack Overflow Date Formatting Question](https://stackoverflow.com/questions/28246788/convert-yyyy-mm-dd-to-mm-dd-yyyy-in-javascript/28246873)
 
 
