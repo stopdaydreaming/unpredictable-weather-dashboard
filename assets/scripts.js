@@ -123,7 +123,7 @@ $(document).ready(function() {
         var forecastIconUrl =
           "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
 
-        $("#forecast-date-1").text(formatDate(fDate));
+        $("#forecast-date-1").text(month + "/" + (day + 1) + "/" + year);
         $("#weather-forecast-icon-1").attr("src", forecastIconUrl);
         $("#forecast-temp-1").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-1").text("Humidity: " + forecastHum + "%");
@@ -140,7 +140,7 @@ $(document).ready(function() {
         var forecastIconUrl =
           "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
 
-        $("#forecast-date-2").text(formatDate(fDate));
+        $("#forecast-date-2").text(month + "/" + (day + 2) + "/" + year);
         $("#weather-forecast-icon-2").attr("src", forecastIconUrl);
         $("#forecast-temp-2").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-2").text("Humidity: " + forecastHum + "%");
@@ -157,7 +157,7 @@ $(document).ready(function() {
         var forecastIconUrl =
           "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
 
-        $("#forecast-date-3").text(formatDate(fDate));
+        $("#forecast-date-3").text(month + "/" + (day + 3) + "/" + year);
         $("#weather-forecast-icon-3").attr("src", forecastIconUrl);
         $("#forecast-temp-3").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-3").text("Humidity: " + forecastHum + "%");
@@ -174,7 +174,7 @@ $(document).ready(function() {
         var forecastIconUrl =
           "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
 
-        $("#forecast-date-4").text(formatDate(fDate));
+        $("#forecast-date-4").text(month + "/" + (day + 4) + "/" + year);
         $("#weather-forecast-icon-4").attr("src", forecastIconUrl);
         $("#forecast-temp-4").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-4").text("Humidity: " + forecastHum + "%");
@@ -191,7 +191,7 @@ $(document).ready(function() {
         var forecastIconUrl =
           "http://openweathermap.org/img/wn/" + forecastIconCode + ".png";
 
-        $("#forecast-date-5").text(formatDate(fDate));
+        $("#forecast-date-5").text(month + "/" + (day + 5) + "/" + year);
         $("#weather-forecast-icon-5").attr("src", forecastIconUrl);
         $("#forecast-temp-5").text("Temp: " + Math.round(fTemp) + " °F");
         $("#forecast-hum-5").text("Humidity: " + forecastHum + "%");
